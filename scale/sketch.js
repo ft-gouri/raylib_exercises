@@ -1,12 +1,14 @@
 const r = require("raylib");
 const geometry = require("./geometry");
+
 const windowWidth = 700;
 const windowHeight = 500;
 
-const width1 = 300;
-const height1 = 200;
-const width2 = 90;
-const height2 = 50;
+const width1 = 500;
+const height1 = 400;
+const scaleWidth = 0.8;
+const scaleHeight = 0.8;
+
 function running() {
   return !r.WindowShouldClose();
 }
@@ -17,6 +19,8 @@ function setup() {
 }
 
 function draw() {
+  const width2 = geometry.scale(scaleWidth, width1);
+  const height2 = geometry.scale(scaleHeight, height1);
   const x = geometry.calcOffset(windowWidth, width1);
   const y = geometry.calcOffset(windowHeight, height1);
   const x1 = geometry.calcOffset(windowWidth, width2);
